@@ -30,7 +30,7 @@ git clone https://github.com/dpgiakatos/cc-index-server.git
 cd cc-index-server
 ./install-collections.sh
 docker build . -t cc-index
-docker run --rm -v $PWD/collections/:/opt/webapp/collections/ --publish 8080:8080 -ti cc-index
+docker run -v $PWD/collections/:/opt/webapp/collections/ --publish 8080:8080 -ti cc-index
 ```
 
 You can use `install-collections.sh` to download indexes to your system and mount it on docker.
