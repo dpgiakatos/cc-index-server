@@ -1,13 +1,25 @@
 #!/bin/bash
 
+CRAWL="CC-MAIN-2025-13"
+
 if [ ! -d "collections" ]; then
-    mkdir collections
+    mkdir -p "collections/$CRAWL"
 fi
 
-aws s3 sync s3://commoncrawl/cc-index/collections/ collections/ --exclude "*" --include "*/cluster.idx" --include "*/metadata.yaml"
+echo "Downloading cc-index.paths.gz..."
+wget "https://data.commoncrawl.org/crawl-data/$CRAWL/cc-index.paths.gz"
+
+echo "Extracting cc-index.paths.gz..."
+gunzip cc-index.paths.gz
+
+echo "Downloading all files from cc-index.paths..."
+while read -r path; do
+  wget "https://data.commoncrawl.org/$path" -P "collections/$CRAWL"
+done < cc-index.paths
 
 if [ $? -ne 0 ]; then
     echo "Error installing collections"
+    rm -r collections
     exit 1
 fi
 echo "Collections installed"

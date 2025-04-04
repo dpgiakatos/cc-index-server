@@ -1,60 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Common Crawl Index Server</title>
-<link rel="stylesheet" href="/static/__shared/shared.css"/>
+  <meta charset="utf-8">
+  <title>Index Server - Common Crawl</title>
+  <meta content="Common Crawl's index server provides a listing of all web crawls in our data bucket." name="description">
+  <meta content="Common Crawl Index Server" property="og:title">
+  <meta content="Common Crawl's index server provides a listing of all web crawls in our data bucket." property="og:description">
+  <meta content="Common Crawl Index Server" property="twitter:title">
+  <meta content="Common Crawl's index server provides a listing of all web crawls in our data bucket." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link href="/static/css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/shared.css" rel="stylesheet" type="text/css">
+  <link href="/static/css/commoncrawl.shared.css" rel="stylesheet" type="text/css">
+  <style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="120d4ab7-4343-1dd2-935d-bf1cc8a9cb99"] {-webkit-transform:translate3d(-100%, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}</style>
+  <link href="https://index.commoncrawl.org/" rel="canonical">
+  <!--  Please keep this css code to improve the font quality -->
+  <style>
+  * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* Invert the scrollbar colors */
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: white; /* Lighter shade */
+}
+/* Invert the scrollbar thumb colors */
+::-webkit-scrollbar-thumb {
+  background-color: #d1d5db; /* Slightly darker shade */
+  border-radius: 6px;
+}
+/* Invert the scrollbar thumb colors on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #e2e8f0; /* Slightly lighter shade on hover */
+}
+/* Invert the scrollbar thumb colors when active (being clicked/dragged) */
+::-webkit-scrollbar-thumb:active {
+  background-color: #c3c9d1; /* Lighter shade when active */
+}
+@font-face {
+    font-family: "LibreFranklin";
+    src: url("/static/fonts/LibreFranklin-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: "LibreFranklin";
+    src: url("/static/fonts/LibreFranklin-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "LibreFranklin", sans-serif;
+    color: #626262;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+table {
+    font-family: "LibreFranklin", sans-serif;
+    width:1024px;
+}
+table.listing th,td {
+    padding: 0.2em 0.5em;
+}
+table.listing th {
+    background-color: #e0e0e0;
+}
+table.listing tr {
+    background-color: #f0f0f0;
+}
+table.listing tr:nth-child(odd) {
+    background-color: #fcfcfc;
+}
+.vertical_space_xl
+{
+    height: 100px;
+}
+.vertical_space_m
+{
+    height: 20px;
+}
+</style>
 </head>
+<body class="home-alt-body">
+  <div data-w-id="f9934ab9-c315-fb17-0fde-1be8ede0ebaa" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-logo-left-container-3 shadow-three w-nav">
+    <div class="navbar-wrapper-4">
+      <a href="index.html" aria-current="page" class="logo-link w-nav-brand w--current"><img src="/static/images/CC_Logo_Blue_Auto.svg" loading="lazy" height="Auto" width="Auto" alt="" class="image-32"></a>
+      <nav role="navigation" class="nav-menu-wrapper-3 w-nav-menu">
+        <ul role="list" class="nav-menu-two-3 w-list-unstyled">
 
-<body>
-<h2>Common Crawl Index Server</h2>
+          <li>
+            <a href="https://commoncrawl.org/contact-us/"  target="_blank" class="button-secondary---z w-button">Contact Us</a>
+          </li>
+          <li class="mobile-margin-top-12"></li>
+        </ul>
+      </nav>
+      <div class="menu-button-4 w-nav-button">
+        <div class="icon-5 w-icon-nav-menu"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page-wrapper">
+    <div style="z-index: 9999" data-w-id="607dd473-a54c-95a9-090c-f565463642b5" style="opacity:0" class="alt-homepage-bullets-list">
+      <div class="alt-homepage-hero-container homepage-bullet-list w-container">
 
-<a href="https://github.com/commoncrawl/cc-index-server"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+      <h1>Common Crawl Index Server</h1>
 
-<p>
-Please see the <a href="https://pywb.readthedocs.io/en/latest/manual/cdxserver_api.html#api-reference">PyWB CDX Server API Reference</a> for more examples on how to use the query API (please replace the API endpoint <code>coll/cdx</code> by one of the API endpoints listed in the table below). Alternatively, you may use one of the command-line tools based on this API: Ilya Kreymer's <a href="https://github.com/ikreymer/cc-index-client">Common Crawl Index Client</a>, Greg Lindahl's <a href="https://pypi.org/project/cdx-toolkit/">cdx-toolkit</a> or Corben Leo's <a href="https://github.com/lc/gau">getallurls (gau)</a>.
-</p>
+      <p>
+      Fork this repository on <a href="https://github.com/commoncrawl/cc-index-server" target="_blank">GitHub</a>
+      </p>
+      <div class="vertical_space_m"></div>
+      <p>
+      Please see the <a href="https://pywb.readthedocs.io/en/latest/manual/cdxserver_api.html#api-reference" target="_blank">PyWB CDX Server API Reference</a> for more examples on how to use the query API (please replace the API endpoint <code>coll/cdx</code> by one of the API endpoints listed in the table below). Alternatively, you may use one of the command-line tools based on this API: Ilya Kreymer's <a href="https://github.com/ikreymer/cc-index-client" target="_blank">Common Crawl Index Client</a>, Greg Lindahl's <a href="https://pypi.org/project/cdx-toolkit/" target="_blank">cdx-toolkit</a> or Corben Leo's <a href="https://github.com/lc/gau" target="_blank">getallurls (gau)</a>.
+      </p>
+      <div class="vertical_space_m"></div>
+      <p>
+      <a href="https://commoncrawl.org/the-data/" target="_blank">Common Crawl data</a> is stored on <a href="https://aws.amazon.com/public-datasets/common-crawl/" target="_blank">Amazon Web Services' Public Data Sets</a>. All data and <a href="https://data.commoncrawl.org/cc-index/collections/index.html">index files</a> are free to download &mdash; run your own index server or analyze the index offline!
+      <div class="vertical_space_m"></div>
+      <p>Please do not overload the URL index server for bulk downloads (e.g. all records of the entire .com top-level domain), see the <a href="https://groups.google.com/d/msg/common-crawl/3QmQjFA_3y4/vTbhGqIBBQAJ" target="_blank">download instructions</a>. Alternatively, check the <a href="https://commoncrawl.org/2018/03/index-to-warc-files-and-urls-in-columnar-format/" target="_blank">columnar index</a> which allows for efficient aggregations and filtering on any field/column.</p>
+      <div class="vertical_space_m"></div>
+      <p>More information about this URL index is found in our <a href="https://commoncrawl.org/2015/04/announcing-the-common-crawl-index/" target="_blank">announcement of the Common Crawl index</a>. For help and support, please visit the <a href="https://groups.google.com/forum/#!forum/common-crawl" target="_blank">Common Crawl user forum</a>.</p>
+      </p>
+      <div class="vertical_space_m"></div>
+      <p>
+      Currently available index collections (also as <a href="/collinfo.json">JSON list</a>):
+      </p>
+      <div class="vertical_space_m"></div>
+      <table class="listing">
+      <thead>
+      <tr>
+        <th>Search Page</th>
+        <th>Crawl</th>
+        <th>API endpoint</th>
+        <th>Index File List on<br/><code>s3://commoncrawl/</code></th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for route in routes | sort(reverse=True, attribute='path') %}
+        {% if route | is_wb_handler %}
+        <tr>
+          <td style="font-size: larger">
+            <b><a href="{{ '/' + route.path }}">{{ '/' + route.path }}</a></b>
+          </td>
+          <td>
+            {% if route.user_metadata.title is defined %}
+            {{ route.user_metadata.title }}
+            {% endif %}
+          </td>
+          <td>/{{ route.path }}-index</td>
+          <td><a href="https://data.commoncrawl.org/crawl-data/{{route.path}}/cc-index.paths.gz">{{route.path}}/cc-index.paths.gz</td></td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+      </tbody>
+      </table>
+      <div class="vertical_space_xl"></div>
+      <footer>
+      <p>
+      Index Server powered by <a href="https://github.com/webrecorder/pywb"  target="_blank">pywb</a>
+      </p>
+      </footer>
+      <div class="vertical_space_xl"></div>
 
-<p>
-<a href="https://commoncrawl.org/the-data/">Common Crawl data</a> is stored on <a href="https://aws.amazon.com/public-datasets/common-crawl/">Amazon Web Services' Public Data Sets</a>. All data and <a href="https://data.commoncrawl.org/cc-index/collections/index.html">index files</a> are free to download &mdash; run your own index server or analyze the index offline!<br/>
-Please do not overload the URL index server for bulk downloads (e.g. all records of the entire .com top-level domain), see the <a href="https://groups.google.com/d/msg/common-crawl/3QmQjFA_3y4/vTbhGqIBBQAJ">download instructions</a>. Alternatively, check the <a href="https://commoncrawl.org/2018/03/index-to-warc-files-and-urls-in-columnar-format/">columnar index</a> which allows for efficient aggregations and filtering on any field/column.<br/>
-More information about this URL index is found in our <a href="https://commoncrawl.org/2015/04/announcing-the-common-crawl-index/">announcement of the Common Crawl index</a>. For help and support, please visit the <a href="https://groups.google.com/forum/#!forum/common-crawl">Common Crawl user forum</a>.
-</p>
-
-<p>
-Currently available index collections (also as <a href="/collinfo.json">JSON list</a>):
-</p>
-<table class="listing">
-<thead>
-<tr>
-  <th>Search Page</th>
-  <th>Crawl</th>
-  <th>API endpoint</th>
-  <th>Index File List on<br/><code>s3://commoncrawl/</code></th>
-</tr>
-</thead>
-<tbody>
-{% for route in routes | sort(reverse=True, attribute='path') %}
-  {% if route | is_wb_handler %}
-  <tr>
-    <td style="font-size: larger">
-      <b><a href="{{ '/' + route.path }}">{{ '/' + route.path }}</a></b>
-    </td>
-    <td>
-      {% if route.user_metadata.title is defined %}
-      {{ route.user_metadata.title }}
-      {% endif %}
-    </td>
-    <td>/{{ route.path }}-index</td>
-    <td><a href="https://data.commoncrawl.org/crawl-data/{{route.path}}/cc-index.paths.gz">{{route.path}}/cc-index.paths.gz</td></td>
-  </tr>
-  {% endif %}
-{% endfor %}
-</tbody>
-</table>
-
-<p style="margin-top: 200px">
-Powered by <a href="https://github.com/webrecorder/pywb">pywb</a>
-</p>
-
+    </div>
+  </div>
+  <div class="footer">
+    <div class="container-default flex-item footer-container">
+      <div class="footer-container">
+        <div class="link-block">
+          <a href="https://commoncrawl.org/" aria-current="page" class="logo-link w-nav-brand w--current"><img src="/static/images/CC_Logo_Blue_Auto.svg" loading="lazy" height="Auto" width="Auto" alt="" class="image-32"></a>
+        </div>
+        <div class="pages-item">
+          <div class="list-1">
+            <h2 class="list-top footer-p">The Data</h2>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/overview/" class="footer-list">Overview</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/web-graphs/" class="footer-list">Web Graphs</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/latest-crawl/" class="footer-list">Latest Crawl</a>
+            </h3>
+          </div>
+          <div class="list-4">
+            <h2 class="list-top footer-p">Resources</h2>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/get-started" class="footer-list">Get Started</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/blog/" class="footer-list">Blog</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/examples/" class="footer-list">Examples</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/use-cases/" class="footer-list">Use Cases</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/ccbot/" class="footer-list">CCBot</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/faq/" class="footer-list">FAQ</a>
+            </h3>
+          </div>
+          <div class="list-4">
+            <h2 class="list-top footer-p">Community</h2>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/research-papers/" class="footer-list">Research Papers</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://groups.google.com/g/common-crawl" target="_blank" class="footer-list">Mailing List Archive</a>
+            </h3>
+          </div>
+          <div class="list-4">
+            <h2 class="list-top footer-p">About</h2>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/team/" class="footer-list">Team</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/mission/" class="footer-list">Mission</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/impact/" class="footer-list">Impact</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/privacy-policy/" class="footer-list">Privacy Policy</a>
+            </h3>
+            <h3 class="list-item-5">
+              <a href="https://commoncrawl.org/terms-of-use/" class="footer-list">Terms of Use</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="copyright-line div-block-64 div-block-65 div-block-66 div-block-67">
+        <a href="https://twitter.com/commoncrawl" target="_blank" class="link-block-5 w-inline-block"><img src="/static/images/twitter.svg" loading="lazy" alt="" class="image-27"></a>
+        <a href="https://www.linkedin.com/company/common-crawl/" target="_blank" class="link-block-6 w-inline-block"><img src="/static/images/linkedin-1.svg" loading="lazy" alt="" class="image-27"></a>
+        <h5 class="h5 copyright">© 2023 Common Crawl</h5>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
