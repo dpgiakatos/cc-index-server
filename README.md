@@ -25,10 +25,10 @@ To run, simply run `cdx-server` to start up the index server, or optionally `way
 
 If you have docker installed in your system, you can run index server with docker itself.
 
-```
+```sh
 git clone https://github.com/dpgiakatos/cc-index-server.git
 cd cc-index-server
-./install-collections.sh
+./install-collections.sh # optional/one time - big download of data to local collections folder...
 docker build . -t cc-index
 docker run -v $PWD/collections/:/opt/webapp/collections/ --publish 8080:8080 -ti cc-index
 ```
