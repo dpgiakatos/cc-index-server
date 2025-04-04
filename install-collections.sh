@@ -3,7 +3,7 @@
 CRAWL="CC-MAIN-2025-13"
 
 if [ ! -d "collections" ]; then
-    mkdir -p "collections/$CRAWL"
+    mkdir -p "collections/$CRAWL/indexes"
 fi
 
 echo "Downloading cc-index.paths.gz..."
@@ -14,7 +14,7 @@ gunzip cc-index.paths.gz
 
 echo "Downloading all files from cc-index.paths..."
 while read -r path; do
-  wget "https://data.commoncrawl.org/$path" -P "collections/$CRAWL"
+  wget "https://data.commoncrawl.org/$path" -P "collections/$CRAWL/indexes"
 done < cc-index.paths
 
 if [ $? -ne 0 ]; then
