@@ -29,19 +29,12 @@ RUN python3.9 -m venv /var/venv
 ENV PATH="/var/venv/bin:$PATH"
 
 # Upgrade Python packaging tools inside the virtual environment.
-RUN python -m pip install --upgrade \
-    pip \
-    setuptools \
-    wheel
+RUN python -m pip install --upgrade pip wheel && \
+    python -m pip install setuptools==59.6.0
 
 COPY ./requirements.txt /tmp/requirements.txt
 
 RUN python -m pip install -r /tmp/requirements.txt
-
-# Explicitly install gevent runtime dependencies.
-RUN python -m pip install \
-    zope.event \
-    zope.interface
 
 COPY ./ /opt/webapp/
 

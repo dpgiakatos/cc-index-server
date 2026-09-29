@@ -15,8 +15,6 @@ greenlet==1.1.2
 werkzeug==2.0.3
 markupsafe==2.0.1
 
-# Explicit gevent dependencies.
-# Installing these explicitly avoids the
-# "DistributionNotFound: zope.event" startup failure.
-zope.event
-zope.interface
+# Versions compatible with gevent 20.12.0 / pkg_resources
+zope.event==4.5.0
+zope.interface==5.4.0
