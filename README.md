@@ -30,7 +30,7 @@ git clone https://github.com/dpgiakatos/cc-index-server.git
 cd cc-index-server
 ./install-collections.sh # optional/one time - big download of data to local collections folder...
 docker build . -t cc-index
-docker run -v $PWD/collections/:/opt/webapp/collections/ --publish 8080:8080 -ti cc-index
+docker run --name cc-index-server -v $PWD/collections/:/opt/webapp/collections/ --publish 8080:8080 -ti cc-index
 ```
 
 You can use `install-collections.sh` to download indexes to your system and mount it on docker.
@@ -40,9 +40,9 @@ You can use `install-collections.sh` to download indexes to your system and moun
 
 The API endpoints correspond to existing index collections in collections directory.
 
-For example, one currently available index is `CC-MAIN-2025-13` and it can be accessed via
+For example, one currently available index is `CC-MAIN-2026-39` and it can be accessed via
 
-`http://localhost:8080/CC-MAIN-2025-13-index?url=commoncrawl.org`
+`http://localhost:8080/CC-MAIN-2026-39-index?url=commoncrawl.org`
 
 
 Refer to [CDX Server API](https://github.com/webrecorder/pywb/wiki/CDX-Server-API) for more detailed instructions on the API itself.

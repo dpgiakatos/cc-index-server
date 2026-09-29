@@ -1,13 +1,22 @@
-# this is the lowest version that seems to build on newer oses on arm.
-# currently, our pywb tries to get 20.9.0, we should update that...
+# gevent 20.12.0 is the lowest version that builds
+# successfully on newer operating systems / ARM64.
 gevent==20.12.0
 
-# Modified version of PyWB (pywb>=2.5.0), API compatible with PyWB 0.33.2
+# pywb fork used by cc-index-server
 git+https://github.com/dpgiakatos/cc-pywb.git@common-crawl-cdx-index#egg=pywb
 
+# Core dependencies
 cffi
 boto3
 uwsgi
+
+# Keep versions compatible with the existing pywb/gevent stack
 greenlet==1.1.2
 werkzeug==2.0.3
 markupsafe==2.0.1
+
+# Explicit gevent dependencies.
+# Installing these explicitly avoids the
+# "DistributionNotFound: zope.event" startup failure.
+zope.event
+zope.interface

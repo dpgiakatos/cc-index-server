@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CRAWL="CC-MAIN-2025-13"
+CRAWL="CC-MAIN-2026-39"
 
 if [ ! -d "collections" ]; then
     mkdir -p "collections/$CRAWL/indexes"
